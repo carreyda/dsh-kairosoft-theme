@@ -1,0 +1,25 @@
+NOTICE
+
+This package is licensed under the MIT License (see LICENSE). One category of
+bundled assets is explicitly excluded from that license:
+
+  design/background.jpg           《温泉物语2》key art
+  design/background-home.jpg      《住宅梦物语》key art
+  design/background-kingdom.jpg   《开罗的游戏王国》key art
+  design/background-park.jpg      《夏日水上乐园物语》key art
+  design/background-mall.jpg      《百货商场物语2》key art
+  design/background-ski.jpg       《闪耀滑雪场物语》key art
+
+These images are promotional artwork © Kairosoft Co., Ltd. They are bundled
+for local, personal, non-commercial theming only and are not licensed under
+the MIT License. They are not part of the software's licensed source; remove
+them (or disable the artwork toggle in the lantern panel) if you redistribute
+this package in a form that requires clear rights to every bundled asset.
+
+The six color palettes, the generated token tables, the panel UI and all
+scripts are original work and are covered by the MIT License.
+
+This project is not affiliated with, endorsed by, or sponsored by Kairosoft
+Co., Ltd. "Kairosoft", "温泉物语", "住宅梦物语", "开罗的游戏王国",
+"夏日水上乐园物语", "百货商场物语2" and "闪耀滑雪场物语" are trademarks of
+their respective owners.

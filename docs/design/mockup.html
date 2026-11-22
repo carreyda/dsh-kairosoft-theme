@@ -1,0 +1,329 @@
+<!doctype html>
+<html lang="zh-CN" data-mode="light">
+<head>
+<meta charset="utf-8">
+<title>Kairosoft onsen theme - mockup</title>
+<style>
+  :root {
+  --bg: #F6EEDC;
+  --surface: #FCF7EA;
+  --surface-2: #F1E4C9;
+  --surface-3: #E7D6B6;
+  --sidebar: #EFE2C7;
+  --text: #392D23;
+  --text-2: #5E4B38;
+  --text-3: #7A654B;
+  --text-4: #8E7759;
+  --brand: #AE4C18;
+  --brand-hover: #94400F;
+  --on-brand: #FFF6E2;
+  --accent: #D67D3D;
+  --success: #4C7A54;
+  --bubble: #F7E3B8;
+  --code: #F0E4CC;
+  --border-1: rgba(57, 45, 35, 0.1);
+  --border-2: rgba(57, 45, 35, 0.17);
+  --border-3: rgba(57, 45, 35, 0.27);
+  --wash: rgba(174, 76, 24, 0.07);
+  --shadow: rgba(57, 45, 35, 0.13);
+  }
+  html[data-mode="dark"] {
+  --bg: #141A24;
+  --surface: #1B2330;
+  --surface-2: #232D3D;
+  --surface-3: #2C3748;
+  --sidebar: #101620;
+  --text: #F2E7CE;
+  --text-2: #CDBB9E;
+  --text-3: #A4927A;
+  --text-4: #94846D;
+  --brand: #F2A93B;
+  --brand-hover: #FFBE5A;
+  --on-brand: #241A10;
+  --accent: #E6A23C;
+  --success: #8FB794;
+  --bubble: #3A2B1B;
+  --code: #0E131B;
+  --border-1: rgba(242, 231, 206, 0.1);
+  --border-2: rgba(242, 231, 206, 0.17);
+  --border-3: rgba(242, 231, 206, 0.27);
+  --wash: rgba(242, 169, 59, 0.07);
+  --shadow: rgba(242, 231, 206, 0.13);
+  }
+  * { box-sizing: border-box; }
+  html, body { height: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: "Microsoft YaHei", "PingFang SC", -apple-system, "Segoe UI", sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  .app { display: flex; height: 100%; }
+
+  /* sidebar */
+  .sidebar {
+    width: 256px; flex: none;
+    background: var(--sidebar);
+    border-right: 1px solid var(--border-2);
+    padding: 16px 12px 12px;
+    display: flex; flex-direction: column; gap: 4px;
+    background-image: linear-gradient(180deg, var(--wash), transparent 220px);
+  }
+  .brand { display: flex; align-items: center; gap: 8px; padding: 2px 8px 14px; }
+  .brand b { font-size: 13.5px; letter-spacing: .02em; }
+  .brand span { margin-left: auto; font-size: 10.5px; color: var(--text-3); }
+  .new {
+    display: flex; align-items: center; gap: 8px;
+    margin: 0 0 14px; padding: 0 12px; height: 36px;
+    background: var(--surface); color: var(--text);
+    border: 1px solid var(--border-2); border-radius: 4px;
+    box-shadow: 0 2px 0 var(--shadow);
+    font: inherit; font-size: 13px; text-align: left; cursor: default;
+  }
+  .new kbd {
+    margin-left: auto; font: inherit; font-size: 10.5px; color: var(--text-3);
+    border: 1px solid var(--border-2); border-radius: 2px; padding: 0 4px;
+  }
+  .sec { font-size: 10.5px; color: var(--text-4); letter-spacing: .08em; padding: 10px 10px 4px; }
+  .item {
+    position: relative; display: block; padding: 7px 10px 7px 12px; border-radius: 3px;
+    color: var(--text-2); font-size: 13px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  }
+  .item.active { background: color-mix(in srgb, var(--brand) 10%, transparent); color: var(--text); }
+  .item.active::before {
+    content: ""; position: absolute; left: 0; top: 8px; bottom: 8px; width: 2px;
+    background: var(--brand); border-radius: 1px;
+  }
+  .grow { flex: 1; }
+  .foot {
+    display: flex; gap: 6px; border-top: 1px solid var(--border-1); padding-top: 10px;
+    color: var(--text-2); font-size: 12.5px;
+  }
+  .foot span { padding: 4px 8px; border-radius: 3px; }
+
+  /* main */
+  .main { flex: 1; min-width: 0; display: flex; flex-direction: column; position: relative; }
+  .main::before {
+    content: ""; position: absolute; inset: 0 0 auto 0; height: 260px; pointer-events: none;
+    background: linear-gradient(180deg, var(--wash), transparent);
+  }
+  header {
+    flex: none; display: flex; align-items: center; gap: 12px;
+    height: 56px; padding: 0 20px; border-bottom: 1px solid var(--border-1);
+    position: relative;
+  }
+  header h1 { font-size: 14px; font-weight: 600; margin: 0; }
+  header .sub { font-size: 11.5px; color: var(--text-3); padding-left: 10px; border-left: 1px solid var(--border-2); }
+  header .right { margin-left: auto; display: flex; align-items: center; gap: 8px; }
+  .chip {
+    display: inline-flex; align-items: center; gap: 6px; height: 26px; padding: 0 9px;
+    background: var(--surface-2); border: 1px solid var(--border-2); border-radius: 3px;
+    font-size: 11.5px; color: var(--text-2);
+  }
+  .icon {
+    width: 26px; height: 26px; display: grid; place-items: center;
+    border: 1px solid var(--border-2); border-radius: 3px; background: var(--surface);
+    color: var(--text-2); font-size: 12px;
+  }
+
+  /* chat */
+  .chat { flex: 1; overflow: hidden; padding: 26px 24px 0; position: relative; }
+  .convo { width: 780px; max-width: 100%; margin: 0 auto; }
+  .msg { display: flex; gap: 12px; margin-bottom: 22px; }
+  .avatar {
+    flex: none; width: 28px; height: 28px; border-radius: 4px;
+    background: var(--brand); color: var(--on-brand);
+    display: grid; place-items: center; font-size: 12px; font-weight: 700;
+    border: 1px solid var(--border-3); box-shadow: 0 2px 0 var(--shadow);
+  }
+  .msg .body { min-width: 0; padding-top: 2px; }
+  .meta { font-size: 12px; color: var(--text-2); margin-bottom: 2px; }
+  .meta em { font-style: normal; color: var(--text-4); font-size: 11px; margin-left: 8px; }
+  p { margin: 6px 0; }
+  ul { margin: 6px 0; padding-left: 18px; color: var(--text-2); }
+  li { margin: 2px 0; }
+  li b { color: var(--text); font-weight: 600; }
+
+  .tool {
+    margin: 12px 0; border: 1px solid var(--border-2); border-radius: 4px;
+    background: var(--surface); box-shadow: 0 2px 0 var(--shadow); overflow: hidden;
+  }
+  .tool .head {
+    display: flex; align-items: center; gap: 8px; padding: 8px 12px;
+    border-bottom: 1px solid var(--border-1); font-size: 12px; color: var(--text-2);
+  }
+  .tool .head b { color: var(--text); font-weight: 600; }
+  .pill {
+    margin-left: auto; display: inline-flex; align-items: center; gap: 5px;
+    font-size: 10.5px; color: var(--success);
+    background: color-mix(in srgb, var(--success) 14%, transparent);
+    border-radius: 2px; padding: 1px 6px;
+  }
+  .pill::before { content: ""; width: 5px; height: 5px; background: currentColor; border-radius: 50%; }
+  .tool .code-line {
+    padding: 8px 12px; font-family: "Cascadia Code", Consolas, monospace;
+    font-size: 11.5px; color: var(--text-3); background: var(--code);
+  }
+
+  pre {
+    margin: 12px 0; padding: 12px 14px; overflow: hidden;
+    background: var(--code); border: 1px solid var(--border-2); border-radius: 4px;
+    font-family: "Cascadia Code", Consolas, monospace; font-size: 11.8px; line-height: 1.7;
+    color: var(--text-2);
+  }
+  .k { color: var(--brand); }
+  .s { color: var(--success); }
+  .c { color: var(--text-4); }
+  .p { color: var(--text); }
+
+  .user { justify-content: flex-end; }
+  .bubble {
+    max-width: 560px; padding: 9px 14px;
+    background: var(--bubble); color: var(--text);
+    border: 1px solid color-mix(in srgb, var(--brand) 28%, transparent);
+    border-radius: 6px; box-shadow: 0 2px 0 var(--shadow);
+  }
+
+  .swatches { display: flex; gap: 8px; margin: 12px 0 4px; }
+  .sw { border: 1px solid var(--border-2); border-radius: 3px; overflow: hidden; background: var(--surface); }
+  .sw i { display: block; width: 64px; height: 24px; }
+  .sw b { display: block; font-size: 9.5px; font-weight: 400; color: var(--text-3); padding: 2px 5px 3px; letter-spacing: .02em; }
+
+  /* composer */
+  .composer { flex: none; padding: 8px 24px 14px; }
+  .composer .wrap { width: 780px; max-width: 100%; margin: 0 auto; }
+  .box {
+    background: var(--surface); border: 1px solid var(--border-3); border-radius: 6px;
+    box-shadow: 0 2px 0 var(--shadow); padding: 12px 14px 10px;
+  }
+  .ph { color: var(--text-4); font-size: 13.5px; padding: 2px 0 16px; }
+  .row { display: flex; align-items: center; gap: 8px; }
+  .row .ghost {
+    height: 26px; padding: 0 8px; display: inline-flex; align-items: center; gap: 6px;
+    border: 1px solid var(--border-2); border-radius: 3px; color: var(--text-2); font-size: 11.5px;
+    background: var(--surface-2);
+  }
+  .send {
+    margin-left: auto; height: 28px; padding: 0 14px; border: 1px solid var(--border-3);
+    border-radius: 3px; background: var(--brand); color: var(--on-brand);
+    font: inherit; font-size: 12px; box-shadow: 0 2px 0 var(--shadow);
+  }
+  .hint { text-align: center; font-size: 10.5px; color: var(--text-4); padding-top: 8px; }
+
+  html[data-mode="dark"] .main::after {
+    content: ""; position: absolute; inset: 0; pointer-events: none; opacity: .5;
+    background-image:
+      radial-gradient(1px 1px at 62% 9%, rgba(242,231,206,.55), transparent 100%),
+      radial-gradient(1px 1px at 74% 16%, rgba(242,231,206,.4), transparent 100%),
+      radial-gradient(1.5px 1.5px at 86% 7%, rgba(242,231,206,.5), transparent 100%),
+      radial-gradient(1px 1px at 92% 22%, rgba(242,231,206,.35), transparent 100%);
+    background-repeat: no-repeat;
+  }
+</style>
+</head>
+<body>
+<div class="app">
+  <aside class="sidebar">
+    <div class="brand">
+      <svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true">
+        <rect x="6.2" y="5.4" width="7.6" height="9.6" rx="2.4" fill="var(--brand)"/>
+        <rect x="7.2" y="6.4" width="2.2" height="7.6" rx="1.1" fill="var(--on-brand)" opacity=".28"/>
+        <rect x="5.6" y="4" width="8.8" height="1.8" rx=".9" fill="var(--text-2)"/>
+        <rect x="5.6" y="14.4" width="8.8" height="1.8" rx=".9" fill="var(--text-2)"/>
+        <path d="M8 4V2.6a2 2 0 0 1 4 0V4" fill="none" stroke="var(--text-2)" stroke-width="1" stroke-linecap="round"/>
+      </svg>
+      <b>DeepSeek Harness</b><span>v0.2</span>
+    </div>
+    <div class="new">+ 新建会话 <kbd>Ctrl N</kbd></div>
+    <div class="sec">今天</div>
+    <a class="item active">温泉主题插件设计</a>
+    <a class="item">令牌对比度核算</a>
+    <div class="sec">更早</div>
+    <a class="item">Git 分支整理</a>
+    <a class="item">周报草稿</a>
+    <div class="grow"></div>
+    <div class="foot"><span>设置</span><span>插件</span></div>
+  </aside>
+
+  <main class="main">
+    <header>
+      <h1>温泉主题插件设计</h1>
+      <span class="sub">deepseek-flash</span>
+      <div class="right">
+        <span class="chip">自动 · 高</span>
+        <span class="icon">···</span>
+      </div>
+    </header>
+
+    <div class="chat">
+      <div class="convo">
+        <div class="msg">
+          <div class="avatar">D</div>
+          <div class="body">
+            <div class="meta">DeepSeek <em>16:24</em></div>
+            <p>我把参考图拆成了一套双色板，方向叫「雪夜温泉」：室外是冷蓝的雪，室内是暖木和灯笼。</p>
+            <ul>
+              <li><b>浅色</b>：米纸底 + 木色描边，像白天的旅馆大堂，长时间阅读不刺眼。</li>
+              <li><b>深色</b>：夜靛底 + 灯笼黄，只留关键动作发光，像雪夜的露天温泉。</li>
+              <li>主色只给发送、选中、焦点环；大面积仍是中性色，避免整屏发橙。</li>
+            </ul>
+
+            <div class="tool">
+              <div class="head"><b>写入主题令牌</b><span>client.js</span><span class="pill">已完成</span></div>
+              <div class="code-line">ctx.theme.overrideTokens('kairosoft', tokens)</div>
+            </div>
+
+<pre><span class="c">// 每个令牌必须同时给出 light / dark</span>
+<span class="k">const</span> <span class="p">tokens</span> = {
+  <span class="s">'--dsw-alias-bg-base'</span>:     { light: <span class="s">'#F6EEDC'</span>, dark: <span class="s">'#141A24'</span> },
+  <span class="s">'--dsw-alias-brand-primary'</span>: { light: <span class="s">'#AE4C18'</span>, dark: <span class="s">'#F2A93B'</span> },
+};</pre>
+          </div>
+        </div>
+
+        <div class="msg user">
+          <div class="bubble">先按这个方向做一版，重点看深色模式的对比度。</div>
+        </div>
+
+        <div class="msg">
+          <div class="avatar">D</div>
+          <div class="body">
+            <div class="meta">DeepSeek <em>16:25</em></div>
+            <p>深色正文用暖白 #F2E7CE，对底色 #141A24 是 14.2:1；主色 #F2A93B 是 8.7:1。浅色主色 #AE4C18 对米纸底 4.7:1，正文 11.6:1，都过 AA。</p>
+            <div class="swatches">
+              <div class="sw"><i style="background:#F6EEDC"></i><b>#F6EEDC</b></div>
+              <div class="sw"><i style="background:#AE4C18"></i><b>#AE4C18</b></div>
+              <div class="sw"><i style="background:#D67D3D"></i><b>#D67D3D</b></div>
+              <div class="sw"><i style="background:#141A24"></i><b>#141A24</b></div>
+              <div class="sw"><i style="background:#F2A93B"></i><b>#F2A93B</b></div>
+              <div class="sw"><i style="background:#3A2B1B"></i><b>#3A2B1B</b></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="composer">
+      <div class="wrap">
+        <div class="box">
+          <div class="ph">给 DeepSeek 发送消息…</div>
+          <div class="row">
+            <span class="ghost">+ 附件</span>
+            <span class="ghost">deepseek-flash</span>
+            <span class="ghost">/ 鍛戒护</span>
+            <span class="send">发送</span>
+          </div>
+        </div>
+        <div class="hint">内容由 AI 生成，请仔细甄别</div>
+      </div>
+    </div>
+  </main>
+</div>
+<script>
+  if (location.hash === '#dark') document.documentElement.dataset.mode = 'dark';
+</script>
+</body>
+</html>

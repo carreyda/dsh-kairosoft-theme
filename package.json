@@ -1,0 +1,32 @@
+{
+  "name": "dsh-kairosoft-theme",
+  "version": "0.6.0",
+  "description": "Six Kairosoft themes for DeepSeek Harness: onsen, moving day, kingdom, water park, new-year mall and ski resort, switchable from a lantern panel.",
+  "type": "module",
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client.js",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg"
+  },
+  "files": ["index.js", "client.js", "cordis.patch.yml", "locale/*.json", "docs", "icon.svg"],
+  "dsh": {
+    "bundle": { "patch": "./cordis.patch.yml" },
+    "client": {
+      "platform": "web",
+      "immediately": true
+    }
+  },
+  "engines": { "dsh": ">=0.2.0" },
+  "keywords": ["dsh-plugin", "dsh-bundle", "theme", "kairosoft", "onsen", "home"],
+  "license": "MIT",
+  "author": "carreyda",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/carreyda/dsh-kairosoft-theme.git"
+  },
+  "homepage": "https://github.com/carreyda/dsh-kairosoft-theme#readme",
+  "bugs": {
+    "url": "https://github.com/carreyda/dsh-kairosoft-theme/issues"
+  }
+}
