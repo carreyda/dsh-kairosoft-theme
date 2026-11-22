@@ -37,11 +37,13 @@
 
 ## 安装
 
-三种装法，任选其一：
+按你手上的东西选一种：
 
-- **插件市场**：侧栏「插件」→「添加插件」→ 搜 `dsh-kairosoft-theme`
-- **npm**：`dsh plugin --profile <你的 profile> add dsh-kairosoft-theme`
+- **插件市场**：侧栏「插件」→「添加插件」→ 搜 `dsh-kairosoft-theme`（已提交 [awesome-dsh-plugin#17920](https://github.com/awesome-dsh-plugin/awesome-dsh-plugin/pull/17920)，收录后直接可见）
+- **GitHub 仓库**：`dsh plugin --profile <你的 profile> add https://github.com/carreyda/dsh-kairosoft-theme`
 - **本地目录**：侧栏「插件」→「添加插件」→「安装第三方插件」→ 填本仓库的绝对路径（例如 `D:\Github\dsh-kairosoft-theme`）
+
+npm 包尚未发布；发布后再补 `dsh plugin add dsh-kairosoft-theme` 这一种。
 
 装完启用即可在任意会话中看到新配色；切换 `light / dark / system` 会即时生效。
 替换已安装包的内容后，需要重启 DeepSeek Harness 才会加载新的 `client.js`。
